@@ -1,0 +1,34 @@
+CC = gcc
+CFLAGS = -Wall -Werror -Wextra
+MFLAGS = -Lmlx_linux -lmlx_Linux -lX11 -lXext
+LFLAGS = -Llibft -lft -Lprintf -lftprintf
+CFILES = main.c
+SRC_DIR = src/
+SRC_FILES = $(addprefix $(SRC_DIR),$(CFILES))
+
+HEADER = -I ./inc/
+NAME = fractol
+LIBFT = libft/libft.a
+PRINTF = printf/libftprintf.a
+
+all : library $(NAME) 
+
+$(NAME) : $(SRC_FILES) Makefile
+	$(CC) $(SRC_FILES) $(CFLAGS) $(MFLAGS) $(LFLAGS) $(HEADER) -o $(NAME)
+
+library :
+	@make -C libft
+	@make -C printf
+	@make -C mlx_linux
+
+clean :
+	@make clean -C printf
+	@make clean -C libft
+	@make clean -C libft
+
+fclean :
+	@make fclean -C printf
+	@make fclean -C libft
+	rm $(NAME)
+
+re : fclean all
