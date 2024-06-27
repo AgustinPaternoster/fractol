@@ -14,5 +14,22 @@ typedef struct s_com
 	int img;
 } t_com;
 
+typedef struct s_fractal
+{
+	void *mlx;
+	void *mlx_win
+
+}t_fractal;
+
+typedef struct s_img
+{
+	void	*img;
+	char	*addr;
+	int		bits_per_pixel;
+	int		line_length;
+	int		endian;
+};
+
+
 
 #endif
