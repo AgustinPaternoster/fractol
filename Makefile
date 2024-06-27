@@ -29,6 +29,7 @@ clean :
 fclean :
 	@make fclean -C printf
 	@make fclean -C libft
+	@make clean -C mlx_linux
 	rm $(NAME)
 
 re : fclean all
