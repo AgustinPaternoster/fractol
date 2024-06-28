@@ -15,8 +15,8 @@
 
 typedef struct s_com
 {
-	int real;
-	int img;
+	double real;
+	double img;
 } t_com;
 
 typedef struct s_img
@@ -34,6 +34,9 @@ typedef struct s_fractal
 	void *mlx_win;
 	char name[11];
 	t_img	img;
+	int  interactions;
+	
+
 
 }t_fractal;
 
