@@ -1,26 +1,8 @@
-
 #include "../inc/fractol.h"
-
 
 // dos posibles promps
 // fractol mandelbrot
 // fractol julia <real> <i>
-size_t	ftstrlcpy(char *dst, const char *src, size_t dstsize)
-{
-	size_t	i;
-
-	i = 0;
-	if (dstsize == 0)
-		return ((size_t)ft_strlen(src));
-	while (src[i] && i < dstsize - 1)
-	{
-		dst[i] = src[i];
-		i++;
-	}
-	dst[i] = '\0';
-	return ((size_t)ft_strlen(src));
-}
-
 
 int main (int arc, char **argv)
 { 
@@ -31,6 +13,7 @@ int main (int arc, char **argv)
 	{
 		ft_strlcpy(fractal.name,argv[1],11);
 		fractal_init(&fractal);
+		render_fractal(&fractal);
 		mlx_loop(fractal.mlx);
 	}
 	else

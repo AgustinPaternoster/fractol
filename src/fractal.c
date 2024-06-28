@@ -1,7 +1,10 @@
 #include "../inc/fractol.h"
 
+static void fractal_data(t_fractal *fractal)
+{
+    fractal->quality = 42;
 
-// ////////////////////////////////////////////////////////////////
+}
 
 static void get_img_data(t_fractal *fractal)
 {
@@ -33,6 +36,8 @@ void fractal_init(t_fractal *fractal)
         m_error();
     }
     get_img_data(fractal);
+    fractal_data(fractal);
+
 
 	
     // for (int i = 0 ; i < 5 ; i++)
