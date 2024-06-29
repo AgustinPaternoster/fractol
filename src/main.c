@@ -3,6 +3,10 @@
 // dos posibles promps
 // fractol mandelbrot
 // fractol julia <real> <i>
+void hook_init(t_fractal *fractal)
+{
+	mlx_hook(fractal->mlx_win,17, 1L<<17, closeapp ,fractal);
+}
 
 int main (int arc, char **argv)
 { 
@@ -13,6 +17,7 @@ int main (int arc, char **argv)
 	{
 		ft_strlcpy(fractal.name,argv[1],11);
 		fractal_init(&fractal);
+		hook_init(&fractal);
 		render_fractal(&fractal);
 		mlx_loop(fractal.mlx);
 	}

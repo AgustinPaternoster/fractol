@@ -5,7 +5,8 @@ LFLAGS = -Llibft -lft -Lprintf -lftprintf
 CFILES = main.c\
 		fractal.c\
 		utils.c\
-		render.c
+		render.c\
+		events.c
 
 SRC_DIR = src/
 SRC_FILES = $(addprefix $(SRC_DIR),$(CFILES))

@@ -8,8 +8,8 @@
 # include <math.h>
 # include <stdlib.h>
 
-# define WIDTH 800
-# define HEIGHT 800
+# define WIDTH 1200
+# define HEIGHT 1200
 //colors
 #define WHITE 0xFFFFFF
 #define BLACK 0x000000
@@ -44,13 +44,13 @@ typedef struct s_fractal
 }t_fractal;
 
 void fractal_init(t_fractal *fractal);
-
 void m_error(void);
-
 void render_fractal(t_fractal *fractal);
+//math
 double mapping(double unscaled_num, double new_min, double new_max, double old_min, double old_max);
 t_com complex_sum(t_com n1 , t_com n2);
 t_com complex_square(t_com n);
-
+//events
+int closeapp(t_fractal *fractal);
 
 #endif

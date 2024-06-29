@@ -25,7 +25,7 @@ static void draw_pixel(int x, int y , t_fractal *fractal)
 	while(i < fractal->quality)
 	{
 		z = complex_sum(complex_square(z),c);
-		if ((z.real + z.real) + (z.img * z.img) > 4)
+		if ((z.real * z.real) + (z.img * z.img) > 4)
 		{
 			color = mapping(i,BLACK,WHITE,0 , fractal->quality);
 			my_mlx_pixel_put(&fractal->img,x , y, color);
@@ -33,7 +33,7 @@ static void draw_pixel(int x, int y , t_fractal *fractal)
 		}
 		i++;
 	} 
-	my_mlx_pixel_put(&fractal->img,x,y,BLUE);
+	my_mlx_pixel_put(&fractal->img,x,y,RED);
 }
 
 void render_fractal(t_fractal *fractal)
