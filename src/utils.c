@@ -28,20 +28,18 @@ t_com complex_square(t_com n)
     return (result);
 }
 
-void next_number(t_com c, t_com z, int interac)
-{
-	// z = z2 + c;
-	// square :(x2 - y2) + 2xyi
-	int i;
-
-	i = 0;
-	while (i < interac)
-	{
-		z = complex_sum(complex_square(z),c);
-        i++;
-	}
-}
 double mapping(double unscaled_num, double new_min, double new_max, double old_min, double old_max)
 {
     return (new_max - new_min) * (unscaled_num - old_min) / (old_max - old_min) + new_min;
+}
+
+void color_change(t_fractal *fractal)
+{
+	static int count;
+	
+	if (count > 5 )
+		count = 0;
+	fractal->color = fractal->colores[count];
+	count++;
+
 }

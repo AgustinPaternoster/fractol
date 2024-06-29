@@ -3,16 +3,23 @@
 static void fractal_data(t_fractal *fractal)
 {
     fractal->quality = 42;
-
+    fractal->zoom = 1;
+	// fractal->colores[0] =  AZUL_OSCURO;
+	// fractal->colores[1] = AZUL_MEDIO;
+	// fractal->colores[2] = AZUL_CLARO;
+	// fractal->colores[3] = AMARILLO_CLARO;
+	// fractal->colores[4] = AMARILLO_MEDIO;
+	// fractal->colores[5] = AMARILLO_OSCURO;
+	// fractal->color = fractal->colores[0];
 }
+
 
 static void get_img_data(t_fractal *fractal)
 {
     fractal->img.addr = mlx_get_data_addr(fractal->img.img,
                                          &fractal->img.bits_per_pixel,
-                                        &fractal->img.line_length,
-                                        &fractal->img.endian);
-    
+                                         &fractal->img.line_length,
+                                         &fractal->img.endian);    
 }
 
 void fractal_init(t_fractal *fractal)       
@@ -37,12 +44,4 @@ void fractal_init(t_fractal *fractal)
     }
     get_img_data(fractal);
     fractal_data(fractal);
-
-
-	
-    // for (int i = 0 ; i < 5 ; i++)
-	// 	my_mlx_pixel_put(&fractal->img , i, 5, 0x00FF0000);
-	// for (int i = 0 ; i < 5 ; i++)
-	// 	my_mlx_pixel_put(&fractal->img, i, 10, 0x0000FF00);
-    // mlx_put_image_to_window(fractal->mlx, fractal->mlx_win, fractal->img.img, 0, 0);
 }

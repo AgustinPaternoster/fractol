@@ -1,5 +1,6 @@
+
 CC = gcc
-CFLAGS = -Wall -Werror -Wextra
+CFLAGS = -Wall -Werror -Wextra -fsanitize=leak
 MFLAGS = -Lmlx_linux -lmlx_Linux -lX11 -lXext
 LFLAGS = -Llibft -lft -Lprintf -lftprintf
 CFILES = main.c\
