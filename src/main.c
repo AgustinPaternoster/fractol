@@ -1,4 +1,5 @@
 #include "../inc/fractol.h"
+#include "stdio.h"
 
 // dos posibles promps
 // fractol mandelbrot
@@ -18,9 +19,15 @@ int main (int arc, char **argv)
 	if ((arc == 2 && !ft_strncmp("mandelbrot",argv[1],11)) || 
 		(arc == 4 && !ft_strncmp("julia",argv[1],6)))
 	{
+		
 		ft_strlcpy(fractal.name,argv[1],11);
 		fractal_init(&fractal);
 		hook_init(&fractal);
+		if(arc == 4)
+		{
+			fractal.julia_real = ft_atodbl(argv[2]);
+			fractal.julia_img = ft_atodbl(argv[3]);
+		}
 		render_fractal(&fractal);
 		mlx_loop(fractal.mlx);
 	}

@@ -15,11 +15,11 @@ static void draw_pixel(int x, int y , t_fractal *fractal)
 	t_com c;
 	int i;
 	int color;
-	
-	z.real = 0;
-	z.img = 0;
-	c.real = mapping(x,-2.00,2.00,0,WIDTH) * fractal->zoom + fractal->move_x ;
-	c.img = mapping(y, 2.00,-2.00,0,HEIGHT) * fractal->zoom + fractal->move_y;
+
+	z.real = mapping(x,-2.00,2.00,0,WIDTH) * fractal->zoom + fractal->move_x ;
+	z.img = mapping(y, 2.00,-2.00,0,HEIGHT) * fractal->zoom + fractal->move_y;
+	c.real = fractal->julia_real;
+	c.img =  fractal->julia_img;
 
 	i = 0;
 	while(i < fractal->quality)
@@ -36,7 +36,7 @@ static void draw_pixel(int x, int y , t_fractal *fractal)
 	my_mlx_pixel_put(&fractal->img,x,y,fractal->color);
 }
 
-void render_fractal(t_fractal *fractal)
+void render_fractal_j(t_fractal *fractal)
 {
 
 	int x;

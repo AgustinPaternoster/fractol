@@ -3,7 +3,7 @@
 void fractal_data(t_fractal *fractal)
 {
     free(fractal->colores);
-    fractal->colores = malloc(sizeof(int)*9);
+    fractal->colores = malloc(sizeof(int)*10);
     if (!fractal->colores)
         m_error();
     fractal->colores[0] =  COL1;
@@ -15,6 +15,7 @@ void fractal_data(t_fractal *fractal)
     fractal->colores[6] = RED;
     fractal->colores[7] = BLUE;
     fractal->colores[8] = GREEN;
+    fractal->colores[9] = WHITE;
     fractal->quality = 42;
     fractal->zoom = 1;
     fractal->color = fractal->colores[1];
@@ -22,7 +23,6 @@ void fractal_data(t_fractal *fractal)
     fractal->move_y = 0.0;
     fractal->zoom = 1.0;
 }
-
 static void get_img_data(t_fractal *fractal)
 {
     fractal->img.addr = mlx_get_data_addr(fractal->img.img,

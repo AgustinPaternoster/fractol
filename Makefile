@@ -7,7 +7,9 @@ CFILES = main.c\
 		fractal.c\
 		utils.c\
 		render.c\
-		events.c
+		events.c\
+		math.c\
+		render_julia.c
 
 SRC_DIR = src/
 SRC_FILES = $(addprefix $(SRC_DIR),$(CFILES))

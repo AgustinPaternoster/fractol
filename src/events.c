@@ -19,13 +19,13 @@ int close_app(t_fractal *fractal)
 static void move_screen(int keysym, t_fractal *fractal)
 {
 	if(keysym == XK_Right)
-		fractal->move_x += 0.5;
+		fractal->move_x += 0.5 * fractal->zoom;
 	if(keysym == XK_Left)
-		fractal->move_x -= 0.5;
+		fractal->move_x -= 0.5* fractal->zoom;
 	if(keysym == XK_Up)
-		fractal->move_y += 0.5;
+		fractal->move_y += 0.5 * fractal->zoom;
 	if(keysym == XK_Down)
-		fractal->move_y -= 0.5;
+		fractal->move_y -= 0.5 * fractal->zoom;
 }
 
 int key_handler(int keysym, t_fractal *fractal)

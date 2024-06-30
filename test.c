@@ -1,62 +1,58 @@
-#include <math.h>
 #include <stdio.h>
-
-#define AMARILLO_CLARO 0xFFFF66
-#define AMARILLO_MEDIO 0xFFFF99
-#define AMARILLO_OSCURO 0xFFFFCC
-#define AZUL_CLARO 0x66FFFF
-#define AZUL_MEDIO 0x99FFFF
-#define AZUL_OSCURO 0xCCFFFF
-
-/// test funcion cambio de color
-typedef struct s_fractal
+#include "./libft/libft.h"
+int	ft_isspace(int c)
 {
-	void *mlx;
-	void *mlx_win;
-	char name[11];
-	//t_img	img;
-	int  quality;
-	int zoom;
-	int color;
-	int *colores;
-
-}t_fractal;
-
-void init_col(t_fractal *fractal)
-{
-	fractal->colores[0] =  AZUL_OSCURO;
-	fractal->colores[1] = AZUL_MEDIO;
-	fractal->colores[2] = AZUL_CLARO;
-	fractal->colores[3] = AMARILLO_CLARO;
-	fractal->colores[4] = AMARILLO_MEDIO;
-	fractal->colores[5] = AMARILLO_OSCURO;
-	fractal->color = fractal->colores[0];
-}
-
-void color_change(t_fractal *fractal)
-{
-	static int count;
-	
-	if (count > 5 )
-		count = 0;
-	fractal->color = fractal->colores[count];
-	count++;
-
-}
-
-
-
-int main(void)
-{
-	t_com z;
-	t_com c;
-	double tmp;
-
-	z.real = 0;
-	z.img = 0;
-
-	c.real = 5;
-	c.img = 2;
-	next_number(c ,z , 2);
+	if ((c >= 9 && c <= 13) || c == ' ')
+		return (c);
 	return (0);
+}
+
+static int	ft_spc_and_sign(char *str, int *is_neg)
+{
+	int	i;
+
+	i = 0;
+	while (ft_isspace(str[i]))
+		i++;
+	if (str[i] == '+' || str[i] == '-')
+	{
+		if (str[i] == '-')
+			*is_neg *= -1;
+		i++;
+	}
+	return (i);
+}
+
+double	ft_atodbl(char *str)
+{
+	int		i;
+	double	nb;
+	int		is_neg;
+	double	div;
+
+	nb = 0;
+	div = 0.1;
+	is_neg = 1;
+	i = ft_spc_and_sign(str, &is_neg);
+	while (str[i] && ft_isdigit(str[i]) && str[i] != '.')
+	{
+		nb = (nb * 10.0) + (str[i] - '0');
+		i++;
+	}
+	if (str[i] == '.')
+		i++;
+	while (str[i] && ft_isdigit(str[i]))
+	{
+		nb = nb + ((str[i] - '0') * div);
+		div *= 0.1;
+		i++;
+	}
+	if (str[i] && !ft_isdigit(str[i]))
+		return (-42);
+	return (nb * is_neg);
+}
+
+int main(int arc, char **argv)
+{
+	printf("%f\n", ft_atodbl(argv[1]));
 }
