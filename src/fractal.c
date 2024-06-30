@@ -2,28 +2,26 @@
 
 void fractal_data(t_fractal *fractal)
 {
-    int *colors;
-    colors = malloc(sizeof(int)*9);
-    if (!colors)
+    free(fractal->colores);
+    fractal->colores = malloc(sizeof(int)*9);
+    if (!fractal->colores)
         m_error();
-    colors[0] =  COL1;
-    colors[1] = COL2;
-    colors[2] = COL3;
-    colors[3] = COL4;
-    colors[4] = COL5;
-    colors[5] = BLACK;
-    colors[6] = RED;
-    colors[7] = BLUE;
-    colors[8] = GREEN;
+    fractal->colores[0] =  COL1;
+    fractal->colores[1] = COL2;
+    fractal->colores[2] = COL3;
+    fractal->colores[3] = COL4;
+    fractal->colores[4] = COL5;
+    fractal->colores[5] = BLACK;
+    fractal->colores[6] = RED;
+    fractal->colores[7] = BLUE;
+    fractal->colores[8] = GREEN;
     fractal->quality = 42;
     fractal->zoom = 1;
-    fractal->color = colors[1];
-    fractal->colores = colors;
+    fractal->color = fractal->colores[1];
     fractal->move_x = 0.0;
     fractal->move_y = 0.0;
     fractal->zoom = 1.0;
 }
-
 
 static void get_img_data(t_fractal *fractal)
 {

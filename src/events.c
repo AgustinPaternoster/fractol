@@ -19,52 +19,30 @@ int close_app(t_fractal *fractal)
 static void move_screen(int keysym, t_fractal *fractal)
 {
 	if(keysym == XK_Right)
-	{
 		fractal->move_x += 0.5;
-		render_fractal(fractal);
-	}
 	if(keysym == XK_Left)
-	{
 		fractal->move_x -= 0.5;
-		render_fractal(fractal);
-	}
 	if(keysym == XK_Up)
-	{
 		fractal->move_y += 0.5;
-		render_fractal(fractal);
-	}
 	if(keysym == XK_Down)
-	{
 		fractal->move_y -= 0.5;
-		render_fractal(fractal);
-	}
 }
 
 int key_handler(int keysym, t_fractal *fractal)
 {
-	// (void)fractal;
-	// ft_printf("%d",keysym);
 	if (keysym == XK_Escape)
 		close_app(fractal);
-	if (keysym == C)
-	{	
+	if (keysym == XK_c)
 		color_change(fractal);
-		render_fractal(fractal);
-	}
 	if (keysym == XK_plus)
-	{
 		fractal->quality += 10;
-		render_fractal(fractal);
-	}
 	if (keysym == XK_minus)
-	{
 		fractal->quality -= 10;
-		render_fractal(fractal);
-	}
 	if (keysym == XK_Left || keysym == XK_Right || keysym == XK_Up || keysym == XK_Down)
 		move_screen(keysym,fractal);
 	if (keysym == XK_r)
-		
+		fractal_data(fractal);
+	render_fractal(fractal);
 	
 
  	
