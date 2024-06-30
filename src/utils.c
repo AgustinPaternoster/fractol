@@ -37,7 +37,7 @@ void color_change(t_fractal *fractal)
 {
 	static int count;
 	
-	if (count > 5 )
+	if (count > 8 )
 		count = 0;
 	fractal->color = fractal->colores[count];
 	count++;

@@ -7,6 +7,7 @@ void hook_init(t_fractal *fractal)
 {
 	mlx_hook(fractal->mlx_win,17, 1L<<17, close_app ,fractal);
 	mlx_key_hook(fractal->mlx_win, key_handler, fractal);
+	mlx_mouse_hook(fractal->mlx_win, mouse_handler, fractal);
 
 }
 

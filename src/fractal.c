@@ -1,16 +1,27 @@
 #include "../inc/fractol.h"
 
-static void fractal_data(t_fractal *fractal)
+void fractal_data(t_fractal *fractal)
 {
+    int *colors;
+    colors = malloc(sizeof(int)*9);
+    if (!colors)
+        m_error();
+    colors[0] =  COL1;
+    colors[1] = COL2;
+    colors[2] = COL3;
+    colors[3] = COL4;
+    colors[4] = COL5;
+    colors[5] = BLACK;
+    colors[6] = RED;
+    colors[7] = BLUE;
+    colors[8] = GREEN;
     fractal->quality = 42;
     fractal->zoom = 1;
-	// fractal->colores[0] =  AZUL_OSCURO;
-	// fractal->colores[1] = AZUL_MEDIO;
-	// fractal->colores[2] = AZUL_CLARO;
-	// fractal->colores[3] = AMARILLO_CLARO;
-	// fractal->colores[4] = AMARILLO_MEDIO;
-	// fractal->colores[5] = AMARILLO_OSCURO;
-	// fractal->color = fractal->colores[0];
+    fractal->color = colors[1];
+    fractal->colores = colors;
+    fractal->move_x = 0.0;
+    fractal->move_y = 0.0;
+    fractal->zoom = 1.0;
 }
 
 
