@@ -23,11 +23,11 @@ int main (int arc, char **argv)
 		ft_strlcpy(fractal.name,argv[1],11);
 		fractal_init(&fractal);
 		hook_init(&fractal);
-		if(arc == 4)
-		{
-			fractal.julia_real = ft_atodbl(argv[2]);
-			fractal.julia_img = ft_atodbl(argv[3]);
-		}
+		// if(arc == 4)
+		// {
+		// 	fractal.julia_real = ft_atodbl(argv[2]);
+		// 	fractal.julia_img = ft_atodbl(argv[3]);
+		// }
 		render_fractal(&fractal);
 		mlx_loop(fractal.mlx);
 	}

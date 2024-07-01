@@ -9,8 +9,8 @@
 # include <stdlib.h>
 # include <X11/keysym.h>
 
-# define WIDTH 800
-# define HEIGHT 800
+# define WIDTH 1200
+# define HEIGHT 1200
 //colors
 #define WHITE 0xFFFFFF
 #define BLACK 0x000000
